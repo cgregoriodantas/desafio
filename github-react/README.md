@@ -1,11 +1,11 @@
 
 
-# Desafio Spring Boot
+# Desafio FrontEnd
 
 ### Início
-Install and Start frontend project with npm install && npm start
+Para executar o projeto use o comando abaixo: 
 ```sh
-mvn clean package && docker-compose up 
+npm install && npm start 
 ```
 
 
