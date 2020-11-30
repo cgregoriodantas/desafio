@@ -39,7 +39,7 @@ export class User extends Component {
 
                             </div>
                         </section>
-                    </div> : <center><div><h2>Pesquise um usuário válido</h2></div></center>
+                    </div> : <center><div></div></center>
 
                  } 
             </>
