@@ -65,7 +65,7 @@ class ConnectedForm extends Component {
             <h3>Desafio FrontEnd</h3><br/>
             <form onSubmit={this.searchUser}>
               <div>
-                <label htmlFor="repoForm">Repo Form </label>
+                <label htmlFor="repoForm">Usuario: </label>
                 <span> </span>
                 <input
                   type="text"
