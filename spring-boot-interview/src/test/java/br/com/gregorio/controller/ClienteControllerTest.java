@@ -3,6 +3,8 @@ package br.com.gregorio.controller;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.time.LocalDate;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.gregorio.entity.Cidade;
 import br.com.gregorio.entity.Cliente;
 import br.com.gregorio.entity.Estado;
+import br.com.gregorio.entity.SexoCliente;
 import br.com.gregorio.service.ClienteService;
 import br.com.gregorio.util.CidadeBuilder;
 import br.com.gregorio.util.ClienteBuilder;
@@ -54,7 +57,11 @@ public class ClienteControllerTest {
 
 		Estado estado = new EstadoBuilder().setId(1L).setUf("DF").build();
 		Cidade cidade = new CidadeBuilder().setId(1L).setNome("Brasília").setEstado(estado).build();
-		Cliente cliente = new ClienteBuilder().setNome("ClientToPersist").setCidade(cidade).build();
+		Cliente cliente = new ClienteBuilder().setNome("Fulano")
+				.setDataNascimento(LocalDate.now())
+				.setIdade(15)
+				.setSexo(SexoCliente.MASCULINO)
+				.setCidade(cidade).build();
 		
 		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post("/clientes").contentType(APPLICATION_JSON)
 				.accept(APPLICATION_JSON).content(objectMapper.writeValueAsString(cliente));
@@ -69,7 +76,11 @@ public class ClienteControllerTest {
 
 		Estado estado = new EstadoBuilder().setId(1L).setUf("DF").build();
 		Cidade cidade = new CidadeBuilder().setId(1L).setNome("Brasília").setEstado(estado).build();
-		Cliente cliente = new ClienteBuilder().setNome("ClientToPersist").setCidade(cidade).build();
+		Cliente cliente = new ClienteBuilder().setNome("Fulano")
+				.setDataNascimento(LocalDate.now())
+				.setIdade(15)
+				.setSexo(SexoCliente.MASCULINO)
+				.setCidade(cidade).build();
 		
 		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.put("/clientes/1").contentType(APPLICATION_JSON)
 				.accept(APPLICATION_JSON).content(objectMapper.writeValueAsString(cliente));

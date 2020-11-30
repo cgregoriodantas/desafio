@@ -3,6 +3,8 @@ package br.com.gregorio.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -98,7 +100,7 @@ public class ClienteController {
 	
 	@PostMapping
 	@ApiOperation(value = "Cria um novo cliente")
-	public ResponseEntity<String> adicionar(@RequestBody Cliente cliente) {
+	public ResponseEntity<String> adicionar(@RequestBody @Valid Cliente cliente) {
 		try {
 						
 			clienteService.salvar(cliente);
@@ -118,7 +120,7 @@ public class ClienteController {
 	
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Altera um cliente")
-	public ResponseEntity<String> alterar(@PathVariable Long id, @RequestBody Cliente cliente) {
+	public ResponseEntity<String> alterar(@PathVariable Long id, @RequestBody @Valid Cliente cliente) {
 		try {
 			
 			clienteService.alterar(id,cliente);			
