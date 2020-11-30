@@ -13,19 +13,19 @@ export class List extends Component {
   render() {
     return (
       <>
-        <section id="team" class="pb-5">
-          <div class="container">                         
+        <section id="team" className="pb-5">
+          <div className="container">                         
               <div class="row">              
               {this.props.repos.map(el => (                
                 <div key={el.id} class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                      <div class="frontside">
-                        <div class="card">
-                          <div class="card-body text-center">                            
-                            <h4 class="card-title">{el.name}</h4>
-                            <p class="card-text">{el.description}</p>                            
-                            <a href={el.clone_url} target="blanck" class="btn btn-danger btn-sm" rel="publisher">
+                  <div className="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div className="mainflip">
+                      <div className="frontside">
+                        <div className="card">
+                          <div className="card-body text-center">                            
+                            <h4 className="card-title">{el.name}</h4>
+                            <p className="card-text">{el.description}</p>                            
+                            <a href={el.clone_url} target="blanck" className="btn btn-danger btn-sm" rel="publisher">
                               Link
                             </a>
                           </div>
