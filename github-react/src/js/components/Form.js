@@ -61,26 +61,30 @@ class ConnectedForm extends Component {
     return (
       <div>
         <section className="bg-info text-center p-5 mt-4">
-          <div className="container p-3">
-            <h3>Desafio FrontEnd</h3>
+          <div className="container">
+            <h3>Desafio FrontEnd</h3><br/>
             <form onSubmit={this.searchUser}>
               <div>
-                <label htmlFor="repoForm">Repo Form</label>
+                <label htmlFor="repoForm">Repo Form </label>
+                <span> </span>
                 <input
                   type="text"
                   id="user"
                   value={user}
                   onChange={this.handleChange}
                 />
-              </div>
+              </div><br/>
+              
               <button type="submit" className="btn btn-light">search</button>
+              <span> </span>
               {
-                    this.props.user.name ? 
+                    this.props.user.avatar_url ? 
                     <>
                       <button type="button" onClick={this.searchRepos} className="btn btn-light">repo</button>
+                      <span> </span>
                       <button type="button" onClick={this.searchStarred} className="btn btn-light">starred</button>
-                    </> : <div></div>
-              }
+                     </> : <div></div> 
+              } 
             </form>
           </div>
         </section>

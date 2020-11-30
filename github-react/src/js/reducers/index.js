@@ -8,13 +8,14 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
 
-    if (action.type === FIND_SUCCESS) {
+    if (action.type === FIND_SUCCESS) {        
         state = {...state, repos: action.payload[0]  ? action.payload : []}        
     }
     else if (action.type === FIND_USER_SUCCESS) {
+        state = {...state, repos: []}        
         state = {...state, user: action.payload  ? action.payload : {}}        
     }
-    else if (action.type === SEARCH_REPOS) {
+    else if (action.type === SEARCH_REPOS) {        
         state.repos.push(action.payload);
     }else if (action.type === SEARCH_STARRED) {
         state.repos.push(action.payload);
