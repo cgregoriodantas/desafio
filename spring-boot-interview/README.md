@@ -1,6 +1,6 @@
 # Desafio Spring Boot
 
-### Getting started
+### Início
 Para executar o projeto use o docker-compose com o comando: 
 ```sh
 mvn clean package && docker-compose up 
