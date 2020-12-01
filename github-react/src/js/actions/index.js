@@ -1,13 +1,20 @@
 import { SEARCH_REPOS, SEARCH_STARRED, FIND_ERROR, FIND_SUCCESS, FIND_USER_SUCCESS } from "../constants/action-types";
 
-export function searchStarred(payload) {
-    console.log(payload.repo)
+export function searchStarred(payload) {    
     return function (dispatch) {
-        return fetch(`https://api.github.com/users/${payload.user}/starred`)
+        let user = fetch(`https://api.github.com/users/${payload.user}`)
+                    .then(response => response.json())
+                    .then(json => {
+                        dispatch({ type: FIND_USER_SUCCESS, payload: json });
+                    });
+
+        let repo = fetch(`https://api.github.com/users/${payload.user}/starred`)
             .then(response => response.json())
             .then(json => {
                 dispatch({ type: FIND_SUCCESS, payload: json });
             });
+        
+        return [user, repo]
     };
 }
 
@@ -36,13 +43,21 @@ export function findError(payload) {
 }
 
 export function searchRepos(payload) {
-    console.log(payload.repo)
     return function (dispatch) {
-        return fetch(`https://api.github.com/users/${payload.user}/repos`)
+        let user = fetch(`https://api.github.com/users/${payload.user}`)
+        .then(response => response.json())
+        .then(json => {
+            dispatch({ type: FIND_USER_SUCCESS, payload: json });
+        });
+
+
+        let repo = fetch(`https://api.github.com/users/${payload.user}/repos`)
             .then(response => response.json())
             .then(json => {
                 dispatch({ type: FIND_SUCCESS, payload: json });
             });
+        
+        return [user, repo]        
     };
 }
 
