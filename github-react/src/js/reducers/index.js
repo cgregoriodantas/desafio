@@ -1,5 +1,5 @@
 
-import { SEARCH_REPOS, SEARCH_STARRED, FIND_ERROR, FIND_SUCCESS, SEARCH_USER, FIND_USER_SUCCESS} from "../constants/action-types";
+import { FIND_SUCCESS, FIND_USER_SUCCESS} from "../constants/action-types";
 
 const initialState = {
     repos: [],

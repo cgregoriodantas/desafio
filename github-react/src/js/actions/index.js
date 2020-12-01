@@ -1,4 +1,4 @@
-import { SEARCH_REPOS, SEARCH_STARRED, FIND_ERROR, FIND_SUCCESS, FIND_USER_SUCCESS } from "../constants/action-types";
+import { FIND_ERROR, FIND_SUCCESS, FIND_USER_SUCCESS } from "../constants/action-types";
 
 export function searchStarred(payload) {    
     return function (dispatch) {
